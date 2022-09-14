@@ -1,0 +1,42 @@
+body {
+    background-color: #e2e4e1;
+    margin: 0;
+}
+
+.form-edit {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-edit form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.3rem;
+    padding: 1rem;
+    border: 1px solid;
+}
+
+.form-edit input {
+    background: none;
+    border: 1px solid;
+    padding: 0.2rem;
+    outline: none;
+}
+
+.form-edit textarea {
+    padding: 0.2rem;
+    background: none;
+    border: 1px solid;
+    outline: none;
+}
+
+.form-edit button {
+    padding: 0.2rem;
+    background: none;
+    border: 1px solid;
+    outline: none;
+}
