@@ -13,14 +13,16 @@ const inputAno = document.querySelector('.inp-for-edit-ano')
 const inputDesc = document.querySelector('.inp-for-edit-desc')
 const area = document.querySelector('.area')
 
-// add.addEventListener("click", (bt) => {
-//     inpmodal.forEach((inp) => {
-//         if (inp == '' || area == '')
-//             inp.placeholder = 'campo vazio'
-//         area.placeholder = 'campo vazio'
-//         bt.preventDefault()
-//     })
-// })
+add.addEventListener("click", (bt) => {
+    inpmodal.forEach((inp) => {
+        if (inp.value == '' || area.value == '') {
+            inp.placeholder = 'campo vazio'
+            area.placeholder = 'campo vazio'
+            bt.preventDefault()
+        }
+    })
+
+})
 
 fechar.addEventListener("click", (button) => {
     modal.classList.remove('open')
@@ -32,7 +34,7 @@ openModal.addEventListener("click", (open) => {
 
 const img = document.querySelector('.img')
 
-fetch('http://localhost:1999/api.php')
+fetch('http://localhost:1999/')
 
 // console.log(json(id))
 
@@ -74,7 +76,7 @@ const list = function(el, index) {
             <a href="http://localhost:1999/delete.php?id=${el[index].id}">
               <button type="button">delete</button>
             </a>
-            <a href="http://localhost:1999/index.php?id=${el[index].id}">
+            <a href="http://localhost:1999/update.php?id=${el[index].id}">
               <button type="button">edit</button>
             </a>
             </div>

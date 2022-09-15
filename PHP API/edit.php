@@ -2,6 +2,8 @@
 
 require_once("./banco.php");
 
+$id = '';
+
 $id = $_GET['id'];
 
 $msg = '';
@@ -12,9 +14,11 @@ $descricao = filter_input(INPUT_POST, 'descricao');
 
 $select = $conn->prepare("SELECT * FROM veiculos WHERE id = $id");
 
-$select->execute();
+if ($id) {
+    $select->execute();
 
-$dados = $select->fetchAll();
+    $dados = $select->fetchAll();
+}
 
 $editar = $conn->prepare("UPDATE veiculos SET veiculo = :veiculo , ano = :ano, descricao = :descricao, marca = :marca WHERE id = $id ");
 
@@ -26,4 +30,6 @@ $editar->bindParam(':marca', $_POST['marca']);
 if ($veiculo and $ano and $descricao and $_POST['marca']) {
     $editar->execute();
     $msg = 'HOME';
+
+    header("location: http://127.0.0.1:5500/index.html");
 }
